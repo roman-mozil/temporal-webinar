@@ -1,0 +1,5 @@
+rootProject.name = 'temporal-webinar'
+include('main-db-app')
+include('es-app')
+include('cse-app')
+include('nce-app')

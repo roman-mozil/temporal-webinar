@@ -1,0 +1,36 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '2.7.13'
+	id 'io.spring.dependency-management' version '1.0.9.RELEASE'
+}
+
+allprojects {
+	apply plugin: 'java'
+	apply plugin: 'org.springframework.boot'
+
+	java {
+		sourceCompatibility = JavaVersion.VERSION_11
+	}
+
+	dependencies {
+		implementation 'org.springframework.boot:spring-boot-starter-web'
+		testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+		implementation 'com.amazonaws:aws-java-sdk-sts:1.12.647'
+
+		//	implementation group: 'io.temporal', name: 'temporal-sdk', version: '1.22.2'
+		implementation "io.temporal:temporal-spring-boot-starter-alpha:1.22.2"
+		implementation "org.springframework.boot:spring-boot-starter-actuator"
+		runtimeOnly "io.micrometer:micrometer-registry-prometheus"
+	}
+	repositories {
+		mavenCentral()
+		gradlePluginPortal()
+		mavenLocal()
+		maven { url "https://repo.maven.apache.org/maven2" }
+	}
+	tasks.named('test') {
+		useJUnitPlatform()
+	}
+}
+
