@@ -18,6 +18,8 @@ and header:
 
 ### Workflow structure
 
+![picture](Workflow.png)
+
 DBActivity(app1)- Local activity- is deployed to Worker 1 together with Workflow itself.
 
 ESActivity(app3)- Remote activity- doesnt have Thread.sleep
