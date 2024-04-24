@@ -22,13 +22,13 @@ dependencies {
 
 application {
     // Define the main class for the application.
-    mainClassName = 'io.temporal.webinar.cse.app.EsApplication'
+    mainClassName = 'io.temporal.webinar.cse.app.CseApplication'
 }
 
 jar {
     manifest {
         attributes 'Implementation-Title': 'Temporal-Cse-app',
                 'Implementation-Version': version,
-                'io.temporal.webinar.cse.app.EsApplication'
+                'io.temporal.webinar.cse.app.CseApplication'
     }
 }

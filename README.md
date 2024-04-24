@@ -22,7 +22,7 @@ and header:
 
 DBActivity(app1)- Local activity- is deployed to Worker 1 together with Workflow itself.
 
-ESActivity(app3)- Remote activity- doesnt have Thread.sleep
+ESActivity(app3)- Remote activity- doesnt have Thread.sleep. It throws error during first invocation to test workflow retry mechanism.
 
 CSEActivity(app2)- Remote activity- has Thread.sleep (500 ms)
 

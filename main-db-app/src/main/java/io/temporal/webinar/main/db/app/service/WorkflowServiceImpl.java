@@ -2,6 +2,7 @@ package io.temporal.webinar.main.db.app.service;
 
 
 import io.temporal.activity.ActivityOptions;
+import io.temporal.common.RetryOptions;
 import io.temporal.spring.boot.WorkflowImpl;
 import io.temporal.workflow.Async;
 import io.temporal.workflow.Promise;
@@ -34,6 +35,10 @@ public class WorkflowServiceImpl implements WorkflowService {
                             .setTaskQueue(ES_QUEUE)
                             .setStartToCloseTimeout(Duration.ofSeconds(10))
                             .setScheduleToCloseTimeout(Duration.ofSeconds(15))
+                            .setRetryOptions(RetryOptions.newBuilder()
+                                            .setInitialInterval(Duration.ofSeconds(1))
+                                            .setMaximumInterval(Duration.ofSeconds(10))
+                                            .build())
                             .build());
     //remote Activity
     private CSEActivity cseActivity =
